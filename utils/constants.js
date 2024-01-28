@@ -12,8 +12,16 @@ const userStatus = {
   rejected: "REJECTED"
 };
 
+const ticketStatus = {
+  open : "OPEN",
+  inprogress : "IN_PROGRESS",
+  blocked : "BLOCKED",
+  closed : "CLOSED"
+ }
+
 // Export user types and user status constants
 module.exports = {
   userTypes,
-  userStatus
+  userStatus,
+  ticketStatus
 };

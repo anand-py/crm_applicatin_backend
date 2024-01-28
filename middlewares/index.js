@@ -1,7 +1,8 @@
-const {verifyUserReqBody, authJwt} = require('../middlewares')
+const {verifyUserReqBody, authJwt, validateTicketReqBody} = require('../middlewares')
 
 
 module.exports = {
     verifyUserReqBody,
-    authJwt
+    authJwt,
+    validateTicketReqBody
 }

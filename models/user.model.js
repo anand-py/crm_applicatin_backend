@@ -45,7 +45,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: "APPROVED"
-    }
+    },
+    ticketCreated: {
+        type: [mongoose.SchemaTypes.ObjectId],
+        ref : "Ticket"
+    },
+    ticketAssigned: {
+        type: [mongoose.SchemaTypes.ObjectId],
+        ref : "Ticket"
+    },
 });
 
 // Export the user model
