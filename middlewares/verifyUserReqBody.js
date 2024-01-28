@@ -40,4 +40,35 @@ const validateUserReqBody = async (req, res, next) => {
   next();
 };
 
-module.exports = { validateUserReqBody };
+const validateUserStatusandUserType = async(req,res,next) =>{
+  const userType = req.body.userType
+  const userTypes = [
+    constants.userTypes.admin,
+    constants.userTypes.customer,
+    constants.userTypes.engineer
+  ]
+  if(userType && !userTypes.includes(userType)){
+    res.status(400).send({
+      message : "User Type Provided is invalid. Possible values are ADMIN | CUSTOMER | ENGINEER"
+    })
+    return
+  }
+  const userStatus = req.body.userStatus
+  const userStatuses = [
+    constants.userStatus.approved,
+    constants.userStatus.pending,
+    constants.userStatus.rejected
+  ]
+  if(userStatus && !userStatuses.includes(userStatus)){
+    res.status(400).send({
+      message : "User Status Provided is invalid. Possible values are APPROVED | PENDING | REJECTED"
+    })
+    return
+  }
+  next()
+}
+
+module.exports = { 
+  validateUserReqBody,
+  validateUserStatusandUserType
+ };

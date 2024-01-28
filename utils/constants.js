@@ -1,8 +1,8 @@
 // Define user types constants
 const userTypes = {
-  customer: "customer",
-  engineer: "engineer",
-  admin: "admin"
+  customer: "CUSTOMER",
+  engineer: "ENGINEER",
+  admin: "ADMIN"
 };
 
 // Define user status constants
