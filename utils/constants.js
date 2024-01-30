@@ -19,7 +19,7 @@ const ticketStatus = {
   closed : "CLOSED"
  }
 
-// Export user types and user status constants
+// Export user types , user status and ticketStatus
 module.exports = {
   userTypes,
   userStatus,

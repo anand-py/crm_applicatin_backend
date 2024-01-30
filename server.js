@@ -10,7 +10,8 @@ const dbConfig = require('./configs/db.config');
 // Import models and routes
 const User = require('./models/user.model');
 const authRoutes = require('./routes/auth.routes');
-const userRoutes = require('./routes/user.routes')
+const userRoutes = require('./routes/user.routes');
+const ticketRoutes = require('./routes/ticket.routes');
 
 // Create an instance of the express application
 const app = express();
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 // Use the authentication routes
 app.use(authRoutes);
 app.use(userRoutes);
+app.use(ticketRoutes);
 
 // Connect to the database
 mongoose.connect(dbConfig.DB_URL);

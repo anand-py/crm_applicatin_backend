@@ -46,15 +46,15 @@ const userSchema = new mongoose.Schema({
         required: true,
         default: "APPROVED"
     },
-    ticketCreated: {
+    ticketsCreated: {
         type: [mongoose.SchemaTypes.ObjectId],
-        ref : "Ticket"
+        ref: "Ticket"
     },
-    ticketAssigned: {
+    ticketsAssigned: {
         type: [mongoose.SchemaTypes.ObjectId],
-        ref : "Ticket"
-    },
-});
+        ref: "Ticket"
+    }
+})
 
 // Export the user model
 module.exports = mongoose.model("User", userSchema);
