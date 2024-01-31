@@ -1,0 +1,24 @@
+meta {
+  name: updateTicket
+  type: http
+  seq: 9
+}
+
+put {
+  url: http://localhost:8030/crm/api/v1/tickets/65b824862d2fcba7ab2c3931
+  body: json
+  auth: none
+}
+
+headers {
+  x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUiLCJpYXQiOjE3MDY2OTUwMTUsImV4cCI6MTcwNjY5NTEzNX0.MFqmtXcAuvik0PAQdrJrFngvb2hu2_kI5Yvds4gOEDA
+}
+
+body:json {
+  {
+      "title" : "Screen Damage",
+      "description" : "Having Screen Damage issue"
+   
+  
+  }
+}

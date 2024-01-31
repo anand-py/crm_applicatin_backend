@@ -1,0 +1,36 @@
+meta {
+  name: getUsers
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:8000/crm/api/v1/users?userStatus=PENDING
+  body: json
+  auth: none
+}
+
+query {
+  userStatus: PENDING
+}
+
+headers {
+  x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUiLCJpYXQiOjE3MDY0NDI2NDcsImV4cCI6MTcwNjQ0Mjc2N30._9LfbdB1fBd1cU4UqOGJ2oU8Aa21FSORkOBN94oaEj0
+}
+
+body:json {
+  {
+      "name" : "Anand10",
+      "userId" : 10,
+      "email" : "anand10@gmail.com",
+      "userType" : "CUSTOMER",
+      "password" : "admin@123",
+      "userStatus" : "APPROVED"
+  }
+}
+
+tests {
+  // pm.test("Response status code is 403", function () {
+  //   pm.response.to.have.status(403);
+  // });
+}

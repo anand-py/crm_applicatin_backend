@@ -1,0 +1,24 @@
+meta {
+  name: createTicket
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8030/crm/api/v1/tickets
+  body: json
+  auth: none
+}
+
+headers {
+  x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJpYXQiOjE3MDY2MTAwNzMsImV4cCI6MTcwNjYxMDE5M30.shjA44c3XoTvBVanhyShX0biSGU1huK5KbwIe3OnA5w
+}
+
+body:json {
+  {
+      "title" : "Issue in Restart",
+      "description" : "Having issue Restart"
+   
+  
+  }
+}

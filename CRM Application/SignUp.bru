@@ -1,0 +1,22 @@
+meta {
+  name: SignUp
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8030/crm/api/v1/auth/signup
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "name" : "Customer3",
+      "userId" : 5,
+      "email" : "customer3@gmail.com",
+      "userType" : "CUSTOMER",
+      "password" : "customer"
+      // "userStatus" : "APPROVED"
+  }
+}
