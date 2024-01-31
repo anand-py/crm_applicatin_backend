@@ -13,6 +13,6 @@ router.post('/crm/api/v1/tickets',
 
 router.put("/crm/api/v1/tickets/:id", authJwt.verifyToken, verifyTicketReqBody.validateTicketStatus, ticketController.updateTicket)
 router.get("/crm/api/v1/tickets", authJwt.verifyToken, ticketController.getAllTickets);
-// router.get("/crm/api/v1/tickets/:id", authJwt.verifyToken, ticketController.getOneTicket);
+router.get("/crm/api/v1/tickets/:id", authJwt.verifyToken, ticketController.getOneTicket);
 
 module.exports = router
