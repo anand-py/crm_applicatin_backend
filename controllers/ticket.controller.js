@@ -2,6 +2,7 @@ const User = require('../models/user.model');
 const Ticket = require('../models/ticket.model');
 const constants = require('../utils/constants');
 const converter = require('../utils/objectConverter');
+const sendEmail = require('../utils/notificationClient').sendEmail
 
 /* 
 * Create a Ticket;
@@ -110,7 +111,7 @@ const createTicket = async (req, res) => {
         // Initialize ticketsCreated if it's undefined
         if (!user.ticketsCreated) {
             user.ticketsCreated = [];
-        } 
+        }
 
         // Push the ticket ID to ticketsCreated
         user.ticketsCreated.push(ticket._id);
@@ -129,12 +130,16 @@ const createTicket = async (req, res) => {
         // Save the engineer
         await engineer.save();
 
-        res.status(201).send(converter.ticketResponse(ticket));
-    } catch (err) {
-        console.error("Some error happened while creating the ticket", err.message);
+        /**
+         * Sending the notification to the assigned Engineer in asynchronous manner
+         */
+        sendEmail(ticket._id, "Ticket with id: " + ticket._id + " created", ticket.description, [user.email, engineer.email], user.email);
+
+            res.status(201).send(converter.ticketResponse(ticket));
+    } catch(err) {
+        console.log("Somr error happened while creating the ticket", err.message);
         res.status(500).send({
-            message: "Some internal server error",
-            error: err.message
+            message: "Some internal server error"
         });
     }
 };
@@ -191,7 +196,8 @@ const updateTicket = async (req,res)=>{
             userId: ticket.reporter
         });
         
-
+        sendEmail(ticket._id, "Ticket with Id: " + ticket._id + " updated", ticket.description, 
+        savedUser.email + "," + engineer.email+"," + reporter.email, savedUser.email);
      
 
         res.status(200).send(converter.ticketResponse(updatedTicket));
@@ -243,6 +249,7 @@ const getOneTicket = async(req,res)=>{
 }
 
 module.exports = { createTicket, updateTicket, getAllTickets, getOneTicket }; // Export the createTicket function directly
+
 
 
 
