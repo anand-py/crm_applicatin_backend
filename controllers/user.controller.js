@@ -13,7 +13,7 @@ const findAll = async (req,res)=>{
                 userName : userNameReq
             })
         }catch(err){
-            console.err('error while fetching the user for username', userNameReq)
+            console.log('error while fetching the user for username', userNameReq)
             res.status(500).send({
                 message : "Some internal error occured"
             })
@@ -25,7 +25,7 @@ const findAll = async (req,res)=>{
                 userStatus : userStatusReq
             })
         }catch(err){
-            console.err(`error while fetching the user for userType [${userTypeReq}] 
+            console.log(`error while fetching the user for userType [${userTypeReq}] 
             and [${userStatusReq}]`)
             res.status(500).send({
                 message : "Some internal error occured"
@@ -37,7 +37,7 @@ const findAll = async (req,res)=>{
                 userType : userTypeReq
             })
         }catch(err){
-            console.err(`error while fetching the user for userType [${userTypeReq}]`)
+            console.log(`error while fetching the user for userType [${userTypeReq}]`)
             res.status(500).send({
                 message : "Some internal error occured"
             })
@@ -48,7 +48,7 @@ const findAll = async (req,res)=>{
            userStatus : userStatusReq
        })
    }catch(err){
-       console.err(`error while fetching the user for userType [${userStatusReq}]`)
+       console.log(`error while fetching the user for userType [${userStatusReq}]`)
        res.status(500).send({
            message : "Some internal error occured"
        })
@@ -97,7 +97,7 @@ const update = async (req,res)=>{
             message : "User record has been updated successfully"
         })
     }catch(err){
-        console.err("Error while updating the records", err.message)
+        console.log("Error while updating the records", err.message)
         res.status(500).send({
             message : "Some Internal Error Occured"
         })
